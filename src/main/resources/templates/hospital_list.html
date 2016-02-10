@@ -1,0 +1,33 @@
+<a href="/hospitals/hospital_edit">Add Hospital</a>
+<a href= "/"><button type="submit">Home</button></a>
+
+
+<table>
+<tr>
+<td>Name</td>
+<td>Street</td>
+<td>Street number</td>
+<td>Neighborhood</td>
+<td>Phone number</td>
+<td>Email</td>
+<td>Doctors</td>
+</tr>
+
+<tr th:each="hospital : ${hospitals}">
+					<td th:text="${{hospital.hospitalName}}"></td>
+					<td th:text="${{hospital.streetName}}"></td>
+					<td th:text="${{hospital.streetNumber}}"></td>
+					<td th:text="${{hospital.neighbourhood}}"></td>
+					<td th:text="${{hospital.phoneNumber}}"></td>
+					<td th:text="${{hospital.hospitalEmail}}"></td>
+					<td th:text="${{hospital.listOfDoctors}}"></td>
+					<td>
+						<a th:href="@{/hospitals/hospital_edit?id={id}(id=${{hospital.id}})}">Edit hospital's details</a>
+						<a th:href="@{/hospitals/hospital_delete?id={id}(id=${{hospital.id}})}">Delete hospital</a>
+					<!-- 	<a th:href="@{/doctor_list?id={id}(id=${{hospital.id}})}">View all doctors of the hospital</a>	 -->					
+					</td>
+</tr>
+</table>
+
+
+
